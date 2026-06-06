@@ -224,8 +224,8 @@ config.macros.extensionsExplorer = {
 	// are urls of user interface; to get raw code, we use the official githubusercontent.com service
 	// also, we change the old urls https://raw.github.com/tobibeer/TiddlyWikiPlugins/master/plugins/FiltrPlugin.js
 	getUrlOfRawIfGithub: function(url) {
-		const ghUrlRE = /^https:\/\/github\.com\/(\w+?)\/(\w+?)\/blob\/(.+)$/
-		const oldGhRawUrlRE = /^https:\/\/raw.github.com\/(\w+?)\/(\w+?)\/(.+)$/
+		const ghUrlRE = /^https?:\/\/github\.com\/([A-Za-z0-9_.-]+?)\/([A-Za-z0-9_.-]+?)\/blob\/([^?#]+)/
+		const oldGhRawUrlRE = /^https?:\/\/raw\.github\.com\/([A-Za-z0-9_.-]+?)\/([A-Za-z0-9_.-]+?)\/([^?#]+)/
 //# test
 		const match = ghUrlRE.exec(url) || oldGhRawUrlRE.exec(url)
 		if(match) return 'https://raw.githubusercontent.com/' + match[1] + // username
